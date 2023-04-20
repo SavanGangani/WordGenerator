@@ -248,21 +248,26 @@ var wordList = [
   "your","yourself","youth","zero","zebra","zipper","zoo","zulu"
 ];
 
-function generateFixedLengthWord(worldLength, numberOfWords) {
+function generateFixedLengthWord(lengthOfWords, numberOfWords) {
+
   let i = 0;
   let r = [];
-  console.log(worldLength)
+  console.log(lengthOfWords)
   console.log(numberOfWords)
-
-  wordList.forEach((word) => {
-    // console.log(` i : ${i}`)
-    if(word.length === worldLength && i < numberOfWords) {
-      console.log(` word selected : ${word}`)
-      r.push(word);
-      i++
-    }
-  })
-  return r;
+  if(typeof(lengthOfWords) =='number' && typeof(numberOfWords)=='number'){
+    wordList.forEach((word) => {
+      if(word.length === lengthOfWords && i < numberOfWords) {
+        console.log(` word selected : ${word}`)
+        r.push(word);
+        i++
+      }
+    })
+    return r;
+  }
+  else{
+    return "Please Enter Valid Data";
+  }
+  
 }
 
 function words(options) {
@@ -280,20 +285,6 @@ function words(options) {
     }
   }
   
-  // function generateFixedLengthWord(worldLength, numberOfWords) {
-  //   let i = 0;
-  //   let r = [];
-  //   console.log(worldLength)
-  //   wordList.forEach((word) => {
-  //     if( i < numberOfWords && word.length == worldLength) {
-  //       console.log(` i : ${i}`)
-  //       console.log(` word selected : ${word}`)
-  //       r.push(word);
-  //       i++
-  //     }
-  //   })
-  //   return r;
-  // }
 
   function generateWordWithMaxLength() {
     var rightSize = false;
